@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Perguntas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="left-container">
+            <h2>Escolha um número de casas para andar:</h2>
+            <div class="move-options">
+                <button class="move-option" data-move="1">1 Casa</button>
+                <button class="move-option" data-move="2">2 Casas</button>
+                <button class="move-option" data-move="3">3 Casas</button>
+            </div>
+
+            <div id="current-player">
+                <h3>Jogador Atual:</h3>
+                <img id="current-player-img" src="" alt="Peça do jogador" />
+            </div>
+
+            <div id="question-container" style="display: none;">
+                <p id="question"></p>
+                <div id="alternatives"></div>
+            </div>
+
+            <div id="result" style="display: none;"></div>
+            <div id="player-position">Sua posição: 0</div>
+        </div>
+
+        <div id="board"></div>
+    </div>
+
+    <script type="module" src="Game.js"></script>
+</body>
+</html>
