@@ -1,0 +1,17 @@
+{
+    "id": 25,
+    "ano": 2024,
+    "banca": "INQC",
+    "orgao": "CPTrans de Petrópolis - RJ",
+    "prova": "INQC - 2024 - CPTrans de Petrópolis - RJ - Programador",
+    "pergunta": "Quando se deseja apurar erros de interface durante os casos de teste de software, como por exemplo, o mau uso da interface, utiliza-se o teste:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "De componente"},
+        {"alternativa": "B", "solucao": "De sistema"},
+        {"alternativa": "C", "solucao": "De release"},
+        {"alternativa": "D", "solucao": "Unitário"}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

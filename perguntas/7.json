@@ -1,0 +1,16 @@
+{
+    "id": 7,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "INPE",
+    "prova": "FGV - 2024 - INPE - Tecnologista Júnior I - Desenvolvimento de Software para Operação de Satélites",
+    "pergunta": "O desenvolvimento orientado a testes (TDD) engloba um conjunto de práticas que visam garantir a detecção de erros e a qualidade do código gerado.\nNo escopo do TDD, assinale a opção que apresenta a característica do teste unitário.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Ser realizado desde o início do projeto."},
+        {"alternativa": "B", "solucao": "Ser desnecessário em pequenos projetos."},
+        {"alternativa": "C", "solucao": "Avaliar mudanças em um sistema como um todo."},
+        {"alternativa": "D", "solucao": "Ser substituível por testes de regressão."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}

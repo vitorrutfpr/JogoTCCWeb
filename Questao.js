@@ -1,73 +1,46 @@
 export class Questao {
     constructor() {
-        this.questionsList = [
-            {
-                pergunta: "Qual é a capital da França?",
-                alternativas: [
-                    { alternativa: "Londres", correta: false },
-                    { alternativa: "Paris", correta: true },
-                    { alternativa: "Roma", correta: false },
-                    { alternativa: "Berlim", correta: false }
-                ]
-            },
-            {
-                pergunta: "Qual é a capital da Itália?",
-                alternativas: [
-                    { alternativa: "Madri", correta: false },
-                    { alternativa: "Lisboa", correta: false },
-                    { alternativa: "Roma", correta: true },
-                    { alternativa: "Berlim", correta: false }
-                ]
-            },
-            {
-                pergunta: "Qual é a capital da Alemanha?",
-                alternativas: [
-                    { alternativa: "Londres", correta: false },
-                    { alternativa: "Paris", correta: false },
-                    { alternativa: "Roma", correta: false },
-                    { alternativa: "Berlim", correta: true }
-                ]
-            }
-        ];
-        this.currentQuestion = null;
+        this.perguntas = [];
     }
 
-    selectRandomQuestion() {
-        const randomIndex = Math.floor(Math.random() * this.questionsList.length);
-        this.currentQuestion = this.questionsList[randomIndex];
+    async carregarPerguntas() {
+        const totalPerguntas = 37; 
+        const promessas = [];
+
+        for (let i = 1; i <= totalPerguntas; i++) {
+            const arquivoJson = `./perguntas/${i}.json`;
+            promessas.push(fetch(arquivoJson).then(response => response.json()));
+        }
+
+        const perguntasCarregadas = await Promise.all(promessas);
+        perguntasCarregadas.forEach(pergunta => {
+            this.perguntas.push(pergunta);
+        });
     }
 
-    displayQuestion() {
-        this.selectRandomQuestion();
+    async displayQuestion() {
+        if (this.perguntas.length === 0) return;
+
+        const pergunta = this.perguntas[Math.floor(Math.random() * this.perguntas.length)];
 
         const questionContainer = document.getElementById('question-container');
-        const questionText = document.getElementById('question');
         const alternativesContainer = document.getElementById('alternatives');
-
+        
+        questionContainer.innerHTML = pergunta.pergunta;
+        
         alternativesContainer.innerHTML = '';
-        questionText.textContent = this.currentQuestion.pergunta;
-
-        this.currentQuestion.alternativas.forEach((text) => {
+        pergunta.alternativas.forEach(item => {
             const button = document.createElement('button');
-            button.textContent = text.alternativa;
-            button.addEventListener('click', () => this.handleAnswer(text.alternativa));
+            button.textContent = `${item.alternativa} - ${item.solucao}`;
+            button.classList.add('alternativa');
             alternativesContainer.appendChild(button);
         });
 
         questionContainer.style.display = 'block';
     }
 
-    handleAnswer(selectedAnswer) {
-        const resultContainer = document.getElementById('result');
-        const moveOption = parseInt(localStorage.getItem('moveOption'), 10);
-        const respostaCorreta = this.currentQuestion.alternativas.find(alt => alt.alternativa === selectedAnswer).correta;
-
-        resultContainer.textContent = respostaCorreta
-            ? `Resposta correta! Você avançou ${moveOption} casas.`
-            : `Resposta incorreta! Você não avançou nenhuma casa.`;
-
-        resultContainer.style.display = 'block';
-
-        return respostaCorreta;
+    handleAnswer(respostaEscolhida) {
+        const pergunta = this.perguntas.find(q => q.pergunta === document.getElementById('question-container').textContent);
+        return pergunta.alternativaCorreta === respostaEscolhida; 
     }
 }

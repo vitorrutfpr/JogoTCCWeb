@@ -1,0 +1,16 @@
+{
+    "id": 19,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "AL-PR",
+    "prova": "FGV - 2024 - AL-PR - Analista Legislativo - Desenvolvedor de Sistemas",
+    "pergunta": "No contexto da Engenharia de Software, os testes de software desempenham um papel consideravelmente importante no âmbito do processo de desenvolvimento.\nNesse contexto, os testes de unidade caracterizam-se por",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Dependerem do sucesso do teste de integração descendente (top-down)."},
+        {"alternativa": "B", "solucao": "Representarem validações em componentes que representam programas independentes."},
+        {"alternativa": "C", "solucao": "Serem responsáveis pela verificação na menor unidade do componente ou módulo de software."},
+        {"alternativa": "D", "solucao": "Substituírem paulatinamente a abordagem de teste por fumaça na verificação do software."}
+    ],
+    "alternativaCorreta": "C",
+    "solucao": ""
+}

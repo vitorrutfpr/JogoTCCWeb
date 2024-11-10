@@ -1,0 +1,17 @@
+{
+    "id": 24,
+    "ano": 2023,
+    "banca": "Instituto Darwin",
+    "orgao": "Prefeitura de Lagoa de Itaenga - PE",
+    "prova": "Instituto Darwin - 2023 - Prefeitura de Lagoa de Itaenga - PE - Técnico em Informática",
+    "pergunta": "Segundo o ISTQB, os testes em software podem ser classificados em função: A) Do estágio do ciclo de vida do produto; B) Do objetivo do teste. Refere-se ao primeiro, EXCETO:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de integração;"},
+        {"alternativa": "B", "solucao": "Teste de sistema;"},
+        {"alternativa": "C", "solucao": "Teste de aceite;"},
+        {"alternativa": "D", "solucao": "Teste de regressão."}
+    ],
+    "alternativaCorreta": "E",
+    "solucao": ""
+}
+

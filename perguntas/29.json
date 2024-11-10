@@ -1,0 +1,17 @@
+{
+    "id": 29,
+    "ano": 2023,
+    "banca": "IBFC",
+    "orgao": "SAEB-BA",
+    "prova": "IBFC - 2023 - SAEB-BA - Técnico Administrativo - Tecnologia da Informação (Desenvolvimento)",
+    "pergunta": "Ao longo do desenvolvimento de um software, os testes se fazem necessários para garantir o correto funcionamento de suas funcionalidades, os testes de software vêm ganhando cada vez mais atenção, a fim de, garantir maior qualidade e confiabilidade do produto de software a ser entregue, um dos testes que podem ser aplicados ao longo do desenvolvimento são os testes de unidade, Assinale a alternativa correta sobre o principal objetivo dos testes de unidade.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Testar a funcionalidade geral do software"},
+        {"alternativa": "B", "solucao": "Testar cada componente individualmente para garantir que funcionem corretamente"},
+        {"alternativa": "C", "solucao": "Testar a usabilidade do software"},
+        {"alternativa": "D", "solucao": "Testar a integração do software que está sendo desenvolvimento em relação a outro software"}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}
+

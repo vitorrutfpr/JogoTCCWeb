@@ -1,0 +1,16 @@
+{
+    "id": 3,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "TCE-PA",
+    "prova": "FGV - 2024 - TCE-PA - Auditor de Controle Externo - Área de Informática - Analista de Sistemas",
+    "pergunta": "Algumas vezes chamado de teste alfa, este tipo de teste corresponde à fase final do processo de testes, precedendo a liberação do software para uso operacional.\nA aplicação é testada com dados fornecidos pelo cliente, o que pode revelar problemas na definição dos requisitos do sistema, uma vez que o software é provocado de maneira diferente ao usar os dados reais em vez de dados de teste.\nA definição acima descreve aspectos a respeito do teste de",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Aceitação."},
+        {"alternativa": "B", "solucao": "Componente."},
+        {"alternativa": "C", "solucao": "Regressão."},
+        {"alternativa": "D", "solucao": "Unidade."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}

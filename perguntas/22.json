@@ -1,0 +1,16 @@
+{
+    "id": 22,
+    "ano": 2024,
+    "banca": "CESGRANRIO",
+    "orgao": "IPEA",
+    "prova": "CESGRANRIO - 2024 - IPEA - Técnico de Planejamento e Pesquisa - Desenvolvimento de Sistemas",
+    "pergunta": "Uma gerente de testes de software propôs a seu time de desenvolvimento que começasse a aplicar a abordagem Test Driven Development (TDD).\nÉ uma das características principais dessa abordagem iniciar o desenvolvimento de testes",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "antes de implementar alguma funcionalidade em si."},
+        {"alternativa": "B", "solucao": "durante o período de homologação."},
+        {"alternativa": "C", "solucao": "após as funcionalidades serem construídas."},
+        {"alternativa": "D", "solucao": "quando a primeira leva de funcionalidades planejadas forem codificadas em algum sprint."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}

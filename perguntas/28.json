@@ -1,0 +1,16 @@
+{
+    "id": 28,
+    "ano": 2023,
+    "banca": "CESGRANRIO",
+    "orgao": "Transpetro",
+    "prova": "CESGRANRIO - 2023 - Transpetro - Profissional Transpetro de Nível Superior - Junior: Ênfase 6: Processos de Negócios",
+    "pergunta": "O principal objetivo dos testes estáticos é o de reduzir os defeitos de um software por meio da redução de defeitos na documentação a partir da qual o software foi desenvolvido.\nUma das técnicas mais importantes para a execução de testes estáticos é a de",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Regressão"},
+        {"alternativa": "B", "solucao": "Walk-through"},
+        {"alternativa": "C", "solucao": "Análise do valor limite"},
+        {"alternativa": "D", "solucao": "Análise de casos de uso"}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}

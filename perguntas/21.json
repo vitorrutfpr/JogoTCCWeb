@@ -1,0 +1,16 @@
+{
+    "id": 21,
+    "ano": 2024,
+    "banca": "CESGRANRIO",
+    "orgao": "IPEA",
+    "prova": "CESGRANRIO - 2024 - IPEA - Técnico de Planejamento e Pesquisa - Desenvolvimento de Sistemas",
+    "pergunta": "Considere que um novo software foi desenvolvido e está prestes a entrar no ambiente de produção de uma empresa, mas, antes disso, serão realizados testes finais. Para isso, um conjunto de representantes dos usuários finais deve participar desse estágio de testes. Caso se perceba que o software está tendo o comportamento esperado, ele será implantado em produção.\nQual estágio de teste está descrito no cenário acima?",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Aceitação"},
+        {"alternativa": "B", "solucao": "Componente"},
+        {"alternativa": "C", "solucao": "Configuração"},
+        {"alternativa": "D", "solucao": "Desempenho"}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}

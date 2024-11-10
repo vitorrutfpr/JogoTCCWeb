@@ -1,0 +1,17 @@
+{
+    "id": 2,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "EPE",
+    "prova": "FGV - 2024 - EPE - Analista de Gestão Corporativa - Tecnologia da Informação (Soluções)",
+    "pergunta": "Após uma atualização, para garantir que partes do sistema que não foram diretamente modificadas continuem funcionando, e que o teste deve utilizar informações do código-fonte para garantir a cobertura de todas as áreas relevantes, devemos realizar testes",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "De regressão com abordagem de caixa branca."},
+        {"alternativa": "B", "solucao": "De integração com abordagem de caixa preta."},
+        {"alternativa": "C", "solucao": "De integração com abordagem de caixa preta."},
+        {"alternativa": "D", "solucao": "De regressão com abordagem de caixa preta."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

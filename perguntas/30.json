@@ -1,0 +1,17 @@
+{
+    "id": 30,
+    "ano": 2023,
+    "banca": "UFSCAR",
+    "orgao": "UFSCAR",
+    "prova": "UFSCAR - 2023 - UFSCAR - Analista de Tecnologia da Informação",
+    "pergunta": "Sobre Integração Contínua e a metodologia Test Driven Development (TDD), é correto afirmar:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Ambas são importantes para entregas ágeis e com qualidade, mas não devem ser utilizadas em conjunto, pois podem causar sobrecarga na equipe."},
+        {"alternativa": "B", "solucao": "A integração contínua tem como pré-requisito a automação de tarefas como a realização de testes de aceitação. Dessa forma, a utilização de TDD é dispensável."},
+        {"alternativa": "C", "solucao": "No TDD, o desenvolvedor deve analisar os requisitos e implementar os testes antes de implementar os requisitos em si. De certa forma, o TDD pode causar atrasos no processo de desenvolvimento, pois é praticamente impossível desenvolver testes sem o software pronto."},
+        {"alternativa": "D", "solucao": "Ambas podem ser utilizadas em ambientes que utilizam metodologias ágeis, pois visam, por exemplo, automação de tarefas e melhoria na qualidade do produto entregue."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

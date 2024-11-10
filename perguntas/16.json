@@ -1,0 +1,17 @@
+{
+    "id": 16,
+    "ano": 2024,
+    "banca": "CESPE / CEBRASPE",
+    "orgao": "LNA",
+    "prova": "CESPE / CEBRASPE - 2024 - LNA - Tecnologista – Especialidade: Desenvolvimento e Arquitetura de Software",
+    "pergunta": "Assinale a opção em que é corretamente apresentado o tipo de teste de software responsável por verificar se diferentes partes do sistemas de software foram projetadas para interagir entre si e se fazem essa interação corretamente, avaliando, inclusive, como os dados são transferidos entre elas.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de desempenho"},
+        {"alternativa": "B", "solucao": "Teste unitário"},
+        {"alternativa": "C", "solucao": "Teste funcional"},
+        {"alternativa": "D", "solucao": "Teste de integração"}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

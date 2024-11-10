@@ -1,0 +1,17 @@
+{
+    "id": 8,
+    "ano": 2024,
+    "banca": "FUNCERN",
+    "orgao": "CREA-RN",
+    "prova": "FUNCERN - 2024 - CREA-RN - Analista de Sistemas",
+    "pergunta": "O TDD, ou Test-Driven Development, é uma abordagem de desenvolvimento orientada a testes que",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "É concentrado na criação de um modelo de domínio que utiliza uma linguagem comum compartilhada entre todas as partes envolvidas no projeto."},
+        {"alternativa": "B", "solucao": "Coloca ênfase na qualidade do código e na confiabilidade do software, por meio da criação de testes unitários antes de escrever o código de produção."},
+        {"alternativa": "C", "solucao": "Enfatiza a qualidade da comunicação e a compreensão compartilhada das funcionalidades do software entre as partes interessadas, incluindo desenvolvedores, testadores e partes de negócios."},
+        {"alternativa": "D", "solucao": "Recomenda criação de especificações de comportamento, usando linguagem natural (Gherkin, por exemplo), a qual descreve o comportamento esperado do software em termos de cenários e casos de uso."}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}
+

@@ -1,0 +1,16 @@
+{
+    "id": 12,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "AL-SC",
+    "prova": "FGV - 2024 - AL-SC - Analista Legislativo III - Analista de Sistemas",
+    "pergunta": "A prática de Test Driven Development (TDD, ou Desenvolvimento Orientado por Testes) se relaciona com o conceito de verificação e validação e se baseia em um ciclo para garantir a qualidade do código.\nEntre as características do TDD, é correto o que se afirma em",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Trata-se de desenvolvimento orientado para os comportamentos, sendo o desenvolvedor responsável por escrever os testes e validá-los de forma que eles funcionem."},
+        {"alternativa": "B", "solucao": "Trata-se de desenvolvimento orientado para os testes, sendo atribuição do programador escrever como o problema deve se comportar."},
+        {"alternativa": "C", "solucao": "Na prática, se refere a escrever um teste automatizado durante o desenvolvimento do código de fato."},
+        {"alternativa": "D", "solucao": "O ciclo do TDD se inicia com a criação de um teste, para auxiliar a codificação, segue com a realização da codificação para passar no teste, e finaliza com a eliminação das redundâncias, ao se refatorar o código."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}

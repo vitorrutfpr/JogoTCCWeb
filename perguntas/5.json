@@ -1,0 +1,17 @@
+{
+    "id": 5,
+    "ano": 2024,
+    "banca": "IBADE",
+    "orgao": "PRODEST-ES",
+    "prova": "IBADE - 2024 - PRODEST-ES - Analista de Tecnologia da Informação - Desenvolvimento de Sistemas",
+    "pergunta": "Existe uma variante do teste de Stress que avalia um intervalo muito pequeno, contido dentro dos limites de validade dos dados e que poderiam causar um processamento extremo e até errôneo, ou profunda degradação de desempenho do sistema. Essa variante é conhecia como:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de sensibilidade;"},
+        {"alternativa": "B", "solucao": "Teste de regressão;"},
+        {"alternativa": "C", "solucao": "Teste de recuperação;"},
+        {"alternativa": "D", "solucao": "Teste beta."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

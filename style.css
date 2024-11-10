@@ -1,4 +1,3 @@
-/* Estilo geral para centralizar o tabuleiro */
 body {
     display: flex;
     flex-direction: column;
@@ -10,81 +9,116 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Container principal do jogo */
 #game-container {
     display: flex;
-    justify-content: space-between; /* Ajusta o layout para ter o tabuleiro à direita e o conteúdo à esquerda */
+    justify-content: space-between;
     align-items: flex-start;
     width: 80%;
     margin: 0 auto;
 }
 
-/* Estilização do tabuleiro */
 #board {
     display: grid;
-    grid-template-columns: repeat(4, 80px); /* Tamanho das colunas */
-    grid-template-rows: repeat(10, 80px); /* Tamanho das linhas */
-    gap: 4px; /* Espaço entre as células */
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(10, 80px);
+    gap: 4px;
     margin-bottom: 30px;
-    margin-left: 20px; /* Espaço à esquerda do tabuleiro */
+    margin-left: 20px;
+    border: 4px solid #333;
+    border-radius: 8px;
+    background-color: #d3b88c;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-/* Estilização das células do tabuleiro */
 .cell {
     width: 80px;
     height: 80px;
     display: flex;
-    justify-content: center;  /* Centraliza o conteúdo horizontalmente */
-    align-items: center;      /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
+    align-items: center;
     background-color: #f5deb3;
-    position: relative;       /* Garante que qualquer conteúdo seja posicionado relativo à célula */
+    position: relative;
+    transition: background-color 0.3s ease;
 }
 
-/* Alternância de cores no tabuleiro */
 .cell:nth-child(odd) {
     background-color: #8b4513;
 }
 
-/* Estilo das imagens das peças */
+.cell .piece {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
 .piece {
     width: 60px;
     height: 60px;
-    object-fit: cover;  /* Garante que a imagem não fique distorcida */
+    object-fit: cover;
 }
 
-/* Estilo das imagens do jogador */
 #current-player-img {
-    width: 50px;  /* Ajuste o tamanho da imagem */
+    width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 2px solid #000;
     margin-bottom: 10px;
     margin-top: 20px;
+    transition: border 0.3s ease;
 }
 
-/* Estilo do contêiner de perguntas */
 #question-container {
     margin-top: 20px;
+    display: none;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Botões de alternativas */
 #alternatives button {
     display: block;
     margin: 5px auto;
     padding: 10px;
     width: 200px;
+    background-color: #6aafea;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Resultado da resposta */
+#alternatives button:hover {
+    background-color: #4a91c9;
+    transform: scale(1.05);
+}
+
+.correct {
+    background-color: #4CAF50 !important;
+}
+
+.incorrect {
+    background-color: #f44336 !important;
+}
+
 #result {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
+    color: #333;
 }
 
-/* Estilo para a posição do jogador */
 #player-position {
     margin-top: 20px;
     font-size: 16px;
     font-weight: bold;
+}
+
+#current-player {
+    border: 2px solid #333;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff8e1;
 }

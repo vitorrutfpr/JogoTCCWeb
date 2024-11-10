@@ -1,0 +1,17 @@
+{
+    "id": 35,
+    "ano": 2007,
+    "banca": "FCC",
+    "orgao": "TRE-MS",
+    "prova": "FCC - 2007 - TRE-MS - Analista Judiciário - Análise de Sistemas",
+    "pergunta": "Com relação a teste de software, é correto afirmar que:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de Stress tem caráter destrutivo, sendo utilizado para definir os valores máximos de carga que a aplicação suporta."},
+        {"alternativa": "B", "solucao": "Ferramentas de acompanhamento de erros (bug tracking) são utilizadas para automatizar testes de performance."},
+        {"alternativa": "C", "solucao": "Teste Unitário é utilizado para validar as interfaces entre os componentes e é baseado no grafo de chamadas entre estes componentes."},
+        {"alternativa": "D", "solucao": "Teste Estrutural é utilizado para medir o comportamento da aplicação em função de seus recursos e da carga gerada por um gerador de transações."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

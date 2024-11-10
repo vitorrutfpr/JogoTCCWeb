@@ -1,0 +1,16 @@
+{
+    "id": 27,
+    "ano": 2023,
+    "banca": "CESGRANRIO",
+    "orgao": "Transpetro",
+    "prova": "CESGRANRIO - 2023 - Transpetro - Profissional Transpetro de Nível Superior - Junior: Ênfase 6: Processos de Negócios",
+    "pergunta": "Uma equipe de desenvolvimento pretende convidar um conjunto de representantes dos usuários finais de uma solução, que aparentemente está completamente desenvolvida, para testar sua última versão antes de disponibilizá-la no mercado. Caso essa versão seja aprovada, será colocada em produção.\nA situação descrita faz referência aos testes",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "unitários"},
+        {"alternativa": "B", "solucao": "de aceitação"},
+        {"alternativa": "C", "solucao": "de desempenho"},
+        {"alternativa": "D", "solucao": "de integração"}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}

@@ -1,0 +1,17 @@
+{
+    "id": 23,
+    "ano": 2023,
+    "banca": "Instituto Darwin",
+    "orgao": "Prefeitura de Lagoa de Itaenga - PE",
+    "prova": "Instituto Darwin - 2023 - Prefeitura de Lagoa de Itaenga - PE - Técnico em Informática",
+    "pergunta": "Test Driven Development (TDD) como programação ou desenvolvimento em que se escreve um teste primeiro, esta é uma abordagem incremental que envolve a criação de um caso de teste anteriormente à implementação do código necessário para que este passe. Após definir a lista com os testes, deve-se escolher um teste e seguir o ciclo de desenvolvimento proposto pelo TDD, que é composto por cinco passos básicos, que inclui, EXCETO:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Adicionar um teste rapidamente"},
+        {"alternativa": "B", "solucao": "Executar o teste para que este não falhe"},
+        {"alternativa": "C", "solucao": "Executar o teste e ver a barra verde"},
+        {"alternativa": "D", "solucao": "Eliminar o código duplicado"}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}
+

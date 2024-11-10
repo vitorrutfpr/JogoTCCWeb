@@ -1,0 +1,17 @@
+{
+    "id": 1,
+    "ano": 2024,
+    "banca": "CESPE / CEBRASPE",
+    "orgao": "CAGEPA - PB",
+    "prova": "CESPE / CEBRASPE - 2024 - CAGEPA - PB - Analista de Sistemas - Sistemas de TI",
+    "pergunta": "Segundo o modelo de quadrantes de testes ágeis, para testes de aceitação do sistema direcionados ao negócio e à crítica do produto, tais como testes exploratórios, de cenários e de usabilidade, os testes mais indicados são os",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "manuais."},
+        {"alternativa": "B", "solucao": "manuais e automatizados."},
+        {"alternativa": "C", "solucao": "apoiados por ferramentas."},
+        {"alternativa": "D", "solucao": "automatizados."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

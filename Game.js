@@ -18,8 +18,9 @@ export class Game {
         this.initGame();
     }
 
-    initGame() {
+    async initGame() {
         this.board.createBoard();
+        this.questao.carregarPerguntas();
         document.getElementById("current-player-img").src = this.jogadores[this.currentPlayerIndex].imagem;
         this.setupMoveOptionButtons();
     }
@@ -34,18 +35,71 @@ export class Game {
         this.board.createBoard();
     }
 
-    displayQuestion() {
-        this.questao.displayQuestion(); 
-
+    async displayQuestion() {
+        const pergunta = this.questao.perguntas[Math.floor(Math.random() * this.questao.perguntas.length)];
+        
+        const questionContainer = document.getElementById('question-container');
         const alternativesContainer = document.getElementById('alternatives');
-        alternativesContainer.addEventListener('click', (event) => {
-            const selectedAnswer = event.target.textContent;
-
-            const isCorrect = this.questao.handleAnswer(selectedAnswer);
-            this.processAnswer(isCorrect); 
-        }, { once: true }); //evento sera ouvido 1x só
+        
+        questionContainer.innerHTML = pergunta.pergunta;
+        
+        alternativesContainer.innerHTML = '';
+        pergunta.alternativas.forEach(alternativa => {
+            const button = document.createElement('button');
+            button.textContent = `${alternativa.alternativa}: ${alternativa.solucao}`;
+            button.classList.add('alternativa');
+            button.dataset.alternativa = alternativa.alternativa;
+            alternativesContainer.appendChild(button);
+    
+            button.addEventListener('click', () => {
+                const alternativaEscolhida = alternativa.alternativa;
+                const alternativaCorreta = pergunta.alternativaCorreta;
+                
+                if (alternativaEscolhida === alternativaCorreta) {
+                    this.processAnswer(true);
+                    button.style.backgroundColor = 'green'; 
+                } else {
+                    this.processAnswer(false);
+                    button.style.backgroundColor = 'red'; 
+                }
+                
+                document.querySelectorAll('#alternatives button').forEach(btn => {
+                    btn.disabled = true;
+                });
+    
+                setTimeout(() => {
+                    alternativesContainer.innerHTML = '';
+                }, 2000);
+            });
+        });
+        questionContainer.style.display = 'block';
     }
+    
+    processAnswer(isCorrect) {
+        const currentPlayer = this.jogadores[this.currentPlayerIndex];
+        const moveOption = parseInt(localStorage.getItem('moveOption'), 10);
+        
+    
+        const playerIcon = document.createElement('img');
+        playerIcon.src = currentPlayer.imagem;
+        playerIcon.alt = `Ícone do jogador ${currentPlayer.nome}`;
+        playerIcon.style.width = '30px'; 
+        playerIcon.style.marginRight = '10px'; 
+    
+     
+        if (isCorrect) {
+            currentPlayer.moverJogador(moveOption);
+            this.updatePlayerPosition();
+        } 
 
+    
+        document.getElementById('question-container').style.display = 'none';
+    
+        setTimeout(() => {
+            this.switchPlayer();
+        }, 2000); 
+    }
+    
     switchPlayer() {
         this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.jogadores.length;
         document.getElementById("current-player-img").src = this.jogadores[this.currentPlayerIndex].imagem;
@@ -66,17 +120,6 @@ export class Game {
         this.displayQuestion();
     }
 
-    processAnswer(isCorrect) {
-        const moveOption = parseInt(localStorage.getItem('moveOption'), 10);
-
-        if (isCorrect) {
-            this.jogadores[this.currentPlayerIndex].moverJogador(moveOption);
-            this.updatePlayerPosition();
-        }
-
-        document.getElementById('question-container').style.display = 'none';
-        this.switchPlayer();
-    }
 
     displayMoveOptions() {
         document.querySelectorAll('.move-option').forEach(button => {

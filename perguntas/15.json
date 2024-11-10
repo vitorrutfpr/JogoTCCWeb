@@ -1,0 +1,17 @@
+{
+    "id": 15,
+    "ano": 2024,
+    "banca": "UFMT",
+    "orgao": "Prefeitura de Cáceres - MT",
+    "prova": "UFMT - 2024 - Prefeitura de Cáceres - MT - Analista de Sistemas",
+    "pergunta": "Na verificação de software, marque a afirmativa que define o propósito da técnica de revisão de código estática.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Executar testes automatizados para verificar a integridade funcional do software."},
+        {"alternativa": "B", "solucao": "Avaliar o desempenho do sistema em condições de carga elevada, antes da execução em produção."},
+        {"alternativa": "C", "solucao": "Identificar defeitos no código-fonte por meio da análise visual e manual, antes da execução dos testes."},
+        {"alternativa": "D", "solucao": "Analisar a conformidade do software com os requisitos de usuário, antes da entrega do produto."}
+    ],
+    "alternativaCorreta": "C",
+    "solucao": ""
+}
+

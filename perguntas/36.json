@@ -1,0 +1,17 @@
+{
+    "id": 36,
+    "ano": 2024,
+    "banca": "IADES",
+    "orgao": "BRB",
+    "prova": "IADES - 2024 - BRB - Analista de Tecnologia da Informação",
+    "pergunta": "Quanto às tarefas de testes de software, assinale a alternativa correta.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Testes de regressão são desenvolvidos de modo incremental durante o desenvolvimento do software, para avaliar se alterações no software introduziram comportamentos inesperados."},
+        {"alternativa": "B", "solucao": "É fundamental que o time de garantia de qualidade seja o mesmo que desenvolveu o produto."},
+        {"alternativa": "C", "solucao": "Em testes automatizados, o desenvolvedor deve se preocupar apenas com o resultado do retorno, e não com o corpo dos métodos e das funções."},
+        {"alternativa": "D", "solucao": "Testes unitários avaliam o sistema como um conjunto unificado de funcionalidades."}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

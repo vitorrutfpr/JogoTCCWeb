@@ -1,0 +1,17 @@
+{
+    "id": 31,
+    "ano": 2023,
+    "banca": "OBJETIVA",
+    "orgao": "Prefeitura de Itabuna - BA",
+    "prova": "OBJETIVA - 2023 - Prefeitura de Itabuna - BA - Analista/Programador de Sistema",
+    "pergunta": "Sobre os testes de software, nesse tipo de teste, o objetivo é testar a menor parte testável do sistema, que pode ser um módulo, um objeto ou uma classe. Qual dos tipos de teste a seguir corresponde diretamente à descrição apresentada?",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de Sistema."},
+        {"alternativa": "B", "solucao": "Teste de Release."},
+        {"alternativa": "C", "solucao": "Teste de Aceitação."},
+        {"alternativa": "D", "solucao": "Teste Unitário."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

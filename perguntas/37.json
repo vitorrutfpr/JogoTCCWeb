@@ -1,0 +1,17 @@
+{
+    "id": 37,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "MF",
+    "prova": "FGV - 2024 - MF - Auditor Federal de Finanças e Controle - Área de Tecnologia da Informação (Transformação Digital) - manhã",
+    "pergunta": "Na validação de requisitos de software, acerca das interações entre a Criação de Casos de Teste, Prototipação e Revisão de Requisitos é correto afirmar que",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "a Prototipação deve ser realizada exclusivamente após a Revisão de Requisitos, pois ajustes nos requisitos não afetam os protótipos já desenvolvidos."},
+        {"alternativa": "B", "solucao": "Prototipação e Revisão de Requisitos são técnicas complementares que, juntas, fornecem uma base sólida para a Criação de Casos de Teste eficaz."},
+        {"alternativa": "C", "solucao": "a Criação de Casos de Teste e a Prototipação são etapas independentes e não influenciam a Revisão de Requisitos."},
+        {"alternativa": "D", "solucao": "Revisão de Requisitos é uma pré-condição para a Criação de Casos de Teste, mas não tem relação direta com a Prototipação."}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}
+

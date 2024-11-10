@@ -1,0 +1,17 @@
+{
+    "id": 11,
+    "ano": 2024,
+    "banca": "CESGRANRIO",
+    "orgao": "Caixa",
+    "prova": "CESGRANRIO - 2024 - Caixa - Técnico Bancário Novo - Tecnologia da Informação - 1° Simulado",
+    "pergunta": "Os testes de software são atividades realizadas para garantir que um programa atenda aos requisitos, funcione corretamente e seja confiável. Um destes testes é realizado interna e externamente antes do lançamento do produto para identificar problemas.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de aceitação."},
+        {"alternativa": "B", "solucao": "Teste de integração."},
+        {"alternativa": "C", "solucao": "Teste de unidade."},
+        {"alternativa": "D", "solucao": "Teste alfa e beta."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

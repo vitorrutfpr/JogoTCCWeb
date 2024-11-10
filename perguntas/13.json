@@ -1,0 +1,17 @@
+{
+    "id": 13,
+    "ano": 2024,
+    "banca": "IBADE",
+    "orgao": "Prefeitura de Joinville - SC",
+    "prova": "IBADE - 2024 - Prefeitura de Joinville - SC - Analista de Tecnologia da Informação",
+    "pergunta": "O objetivo principal do processo de teste de software é detectar a presença de erros no sistema testado. Sendo assim, o teste bem sucedido é aquele que consegue determinar situações nas quais o software falhe. Para se alcançar tal objetivo, diversas são as técnicas que podem ser empregadas. O Teste de Regressão apresenta as seguintes características:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Consiste em aplicar, antes e depois da alteração, todos os testes que já foram aplicados nas versões anteriores;"},
+        {"alternativa": "B", "solucao": "É projetado em função da estrutura interna do sistema e, por isso, permite uma verificação mais precisa do funcionamento do software;"},
+        {"alternativa": "C", "solucao": "Não está preocupado com o comportamento interno do sistema durante a execução do teste, mas sim com a saída gerada após a entrada dos dados especificados;"},
+        {"alternativa": "D", "solucao": "Essa técnica de teste deve validar os requisitos de segurança, visando identificar as vulnerabilidades do sistema;"}
+    ],
+    "alternativaCorreta": "A",
+    "solucao": ""
+}
+

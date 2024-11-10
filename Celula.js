@@ -1,5 +1,4 @@
 
-
 export class Celula {
     constructor(index) {
         this.index = index; 

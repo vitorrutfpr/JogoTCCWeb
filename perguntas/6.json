@@ -1,0 +1,17 @@
+{
+    "id": 6,
+    "ano": 2024,
+    "banca": "IBADE",
+    "orgao": "PRODEST-ES",
+    "prova": "IBADE - 2024 - PRODEST-ES - Analista de Tecnologia da Informação - Desenvolvimento de Sistemas",
+    "pergunta": "Em sistemas não orientado a objetos é possível utilizar o teste unitário de maneira simplificada com um número de testes reduzidos. Neste contexto, isto é viável quando:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Utilizamos testes de caixa-preta nos componentes;"},
+        {"alternativa": "B", "solucao": "Uma única função é implementada por componente;"},
+        {"alternativa": "C", "solucao": "Os requisitos estão bem entendidos;"},
+        {"alternativa": "D", "solucao": "Os componentes apresentam alta integração;"}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}
+

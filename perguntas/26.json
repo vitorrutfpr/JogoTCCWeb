@@ -1,0 +1,17 @@
+{
+    "id": 26,
+    "ano": 2023,
+    "banca": "Os níveis de teste são grupos de atividades de teste que são organizados e gerenciados juntos e são executados em relação ao software em determinado nível de desenvolvimento. Assinale a alternativa que NÃO apresenta um teste que se enquadra na definição dos níveis de teste.",
+    "orgao": "FUNDATEC",
+    "prova": "IF-RS",
+    "pergunta": "FUNDATEC - 2023 - IF-RS - Professor - Informática Geral",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de componentes."},
+        {"alternativa": "B", "solucao": "Teste de integração."},
+        {"alternativa": "C", "solucao": "Teste do sistema."},
+        {"alternativa": "D", "solucao": "Teste de performance."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

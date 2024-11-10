@@ -1,0 +1,17 @@
+{
+    "id": 17,
+    "ano": 2024,
+    "banca": "CESPE / CEBRASPE",
+    "orgao": "LNA",
+    "prova": "CESPE / CEBRASPE - 2024 - LNA - Tecnologista – Especialidade: Desenvolvimento e Arquitetura de Software",
+    "pergunta": "Os frameworks de teste de software",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Permitem o aumento da produtividade, apesar de não serem úteis para testar softwares em diferentes plataformas."},
+        {"alternativa": "B", "solucao": "Permitem o aumento da produtividade, ainda que não possam ser integrados a processos de integração contínua."},
+        {"alternativa": "C", "solucao": "São usados exclusivamente para testes manuais."},
+        {"alternativa": "D", "solucao": "Fornecem estruturas e funcionalidades para automatizar os testes de software."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

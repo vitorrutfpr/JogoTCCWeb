@@ -1,0 +1,17 @@
+{
+    "id": 18,
+    "ano": 2024,
+    "banca": "CESPE / CEBRASPE",
+    "orgao": "LNA",
+    "prova": "CESPE / CEBRASPE - 2024 - LNA - Tecnologista – Especialidade: Desenvolvimento e Arquitetura de Software",
+    "pergunta": "A abordagem que se concentra principalmente em examinar as estruturas internas ou os funcionamentos de uma aplicação de software é denominada teste de",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Sistema."},
+        {"alternativa": "B", "solucao": "Caixa preta."},
+        {"alternativa": "C", "solucao": "Caixa branca."},
+        {"alternativa": "D", "solucao": "Aceitação."}
+    ],
+    "alternativaCorreta": "C",
+    "solucao": ""
+}
+

@@ -1,0 +1,16 @@
+{
+    "id": 34,
+    "ano": 2005,
+    "banca": "FCC",
+    "orgao": "TRE-MG",
+    "prova": "FCC - 2005 - TRE-MG - Analista Judiciário - Análise de Sistemas",
+    "pergunta": "O Tribunal solicita o uso de métodos de teste de software para que o Analista de Sistemas possa derivar os casos de teste que:\n\n− garantam que todos os caminhos independentes dentro de um módulo tenham sido exercitados pelo menos uma vez;\n− exercitem todas as decisões lógicas para valores falsos ou verdadeiros;\n− executem todos os laços (loops) em suas fronteiras e dentro de seus limites operacionais;\n− exercitem as estruturas de dados internas para garantir sua validade.\n\nPara atender a todos os requisitos acima, o Analista de Sistemas usa a abordagem de teste de",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Particionamento de equivalência."},
+        {"alternativa": "B", "solucao": "Caixa branca."},
+        {"alternativa": "C", "solucao": "Análise de valor limite."},
+        {"alternativa": "D", "solucao": "Técnicas de grafo de causa e efeito."}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}

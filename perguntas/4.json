@@ -1,0 +1,17 @@
+{
+    "id": 4,
+    "ano": 2024,
+    "banca": "VUNESP",
+    "orgao": "Câmara de Campinas - SP",
+    "prova": "VUNESP - 2024 - Câmara de Campinas - SP - Analista Legislativo - TI",
+    "pergunta": "Considerando os conceitos de teste de software, é correto afirmar que o Teste de Desempenho visa, especificamente,",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Examinar se o software atende aos requisitos de disponibilidade estabelecidos."},
+        {"alternativa": "B", "solucao": "Constatar se a equipe de desenvolvimento cumpriu com os prazos previamente determinados."},
+        {"alternativa": "C", "solucao": "Assegurar o funcionamento do software em diversas plataformas de hardware."},
+        {"alternativa": "D", "solucao": "Assegurar que o software possa realizar seu processamento de acordo com a carga pretendida."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

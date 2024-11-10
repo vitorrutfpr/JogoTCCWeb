@@ -1,0 +1,16 @@
+{
+    "id": 20,
+    "ano": 2024,
+    "banca": "FGV",
+    "orgao": "SES-MT",
+    "prova": "FGV - 2024 - SES-MT - Analista de Sistemas – Administrador de Banco de Dados; Infraestrutura; O&M",
+    "pergunta": "A excelência no desenvolvimento de software começa com testes meticulosos, assim como a precisão é crucial em uma obra de arte. Diversas técnicas de teste de software existem, cada uma com propósito e abordagem específicos.\nAssinale a opção que indica o tipo de teste que assegura que as funcionalidades previamente implementadas não serão afetadas pelas alterações feitas no código.",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste Unitário."},
+        {"alternativa": "B", "solucao": "Teste de Integração."},
+        {"alternativa": "C", "solucao": "Teste de Usabilidade."},
+        {"alternativa": "D", "solucao": "Teste de Regressão."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}

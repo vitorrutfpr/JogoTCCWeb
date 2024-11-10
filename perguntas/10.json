@@ -1,0 +1,17 @@
+{
+    "id": 10,
+    "ano": 2024,
+    "banca": "OBJETIVA",
+    "orgao": "Prefeitura de Senador Salgado Filho - RS",
+    "prova": "OBJETIVA - 2024 - Prefeitura de Senador Salgado Filho - RS - Analista e Programador",
+    "pergunta": "O teste que avalia a interação e a cooperação entre diferentes módulos, componentes ou sistemas de software para garantir o correto funcionamento do conjunto, assegurando que as partes, quando combinadas, executem as funções previstas de maneira harmoniosa e sem conflitos ou erros, é conhecido como:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste Unitário."},
+        {"alternativa": "B", "solucao": "Teste de Componente."},
+        {"alternativa": "C", "solucao": "Teste de Integração."},
+        {"alternativa": "D", "solucao": "Teste de Segurança."}
+    ],
+    "alternativaCorreta": "C",
+    "solucao": ""
+}
+

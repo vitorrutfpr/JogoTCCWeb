@@ -1,0 +1,16 @@
+{
+    "id": 9,
+    "ano": 2024,
+    "banca": "CESGRANRIO",
+    "orgao": "Caixa",
+    "prova": "CESGRANRIO - 2024 - Caixa - Técnico Bancário Novo - Tecnologia da Informação",
+    "pergunta": "Em um contrato para o desenvolvimento de um software de gestão empresarial, uma cláusula específica solicita a execução, pelo fornecedor, de um “teste alfa” antes da entrega do produto ao cliente.\n\nPara atender a essa cláusula do contrato, o fornecedor deve",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Distribuir o software para um grupo externo de usuários para que estes o utilizem em condições reais e forneçam feedback sobre a experiência antes de distribuir amplamente."},
+        {"alternativa": "B", "solucao": "Verificar a comunicação e o funcionamento adequados entre diferentes módulos ou componentes do software, assegurando que eles trabalhem juntos conforme esperado."},
+        {"alternativa": "C", "solucao": "Testar individualmente os menores pedaços de código do software, como funções ou métodos, para garantir que funcionem corretamente."},
+        {"alternativa": "D", "solucao": "Avaliar o software com uma equipe interna que simula o comportamento do usuário final, buscando identificar falhas antes da liberação para usuários externos."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}

@@ -1,0 +1,17 @@
+{
+    "id": 32,
+    "ano": 2023,
+    "banca": "PR-4 UFRJ",
+    "orgao": "UFRJ",
+    "prova": "PR-4 UFRJ - 2023 - UFRJ - Analista de Tecnologia da Informação-Desenvolvimento",
+    "pergunta": "Sobre Desenvolvimento Guiado pelos Testes pelo qual a prática é começar a implementação pelo teste e, deve o tempo todo, fazer de tudo para que seu código seja simples e com qualidade. O entendimento que o desenvolvedor deve buscar pela solução mais simples, e não pela modificação mais simples, observando que a modificação mais simples não é necessariamente a solução mais simples, está relacionado ao conceito de:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Testes de sistema."},
+        {"alternativa": "B", "solucao": "Testes de unidade."},
+        {"alternativa": "C", "solucao": "Objetos simulados."},
+        {"alternativa": "D", "solucao": "Passos de bebê."}
+    ],
+    "alternativaCorreta": "D",
+    "solucao": ""
+}
+

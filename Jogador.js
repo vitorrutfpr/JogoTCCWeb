@@ -29,6 +29,7 @@ export class Jogador {
     }
 
     moverJogador(opcao) {
+        console.log('movendo')
         opcao = opcao * 4
         if (this.posicao - opcao >= 0) {
             this.posicao -= opcao;

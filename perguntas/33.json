@@ -1,0 +1,17 @@
+{
+    "id": 33,
+    "ano": 2005,
+    "banca": "FAPEU",
+    "orgao": "TRE-SC",
+    "prova": "FAPEU - 2005 - TRE-SC - Analista Judiciário - Análise de Sistemas",
+    "pergunta": "A respeito de teste de software, é INCORRETO afirmar que:",
+    "alternativas": [
+        {"alternativa": "A", "solucao": "Teste de regressão consiste na reaplicação de testes já aplicados, em função de posteriores alterações do software testado."},
+        {"alternativa": "B", "solucao": "O plano de teste de validação (de requisitos) só pode ser elaborado após a etapa de implementação."},
+        {"alternativa": "C", "solucao": "Teste de integração avalia a compatibilidade entre módulos de software previamente testados."},
+        {"alternativa": "D", "solucao": "Teste exaustivo corresponde à exploração de todas as possibilidades de execução de um software."}
+    ],
+    "alternativaCorreta": "B",
+    "solucao": ""
+}
+
