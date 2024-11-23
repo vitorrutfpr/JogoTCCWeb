@@ -16,6 +16,24 @@ export class GerenciadorDOM {
         });
     }
 
+    exibirTelaVencedor(jogador, reiniciarCallback) {
+        const telaVencedor = document.createElement('div');
+        telaVencedor.id = 'winner-screen';
+        telaVencedor.innerHTML = `
+            <div class="winner-message">
+                <h1>🎉 ${jogador.nome || 'Jogador'} venceu! 🎉</h1>
+                <button id="restart-game">Jogar Novamente</button>
+            </div>
+        `;
+        document.body.appendChild(telaVencedor);
+
+        const botaoRestart = document.getElementById('restart-game');
+        botaoRestart.addEventListener('click', () => {
+            document.body.removeChild(telaVencedor);
+            if (reiniciarCallback) reiniciarCallback();
+        });
+    }
+
     setJogadorNoTurnoImagem(imagem) {
         this.elementoImagemDoJogador.src = imagem;
     }

@@ -3,7 +3,8 @@ import { Board } from './Board.js';
 import { Questao } from './Questao.js';
 import { GerenciadorDOM } from './GerenciadorDOM.js';
 
-const quantidadeDePerguntas = 37;
+const QUANTIDADE_TOTAL_PERGUNTAS = 37;
+
 
 export class Game {
     constructor() {
@@ -24,7 +25,7 @@ export class Game {
 
     async iniciarJogo() {
         this.board.renderizarTabuleiro();
-        this.questao.carregarPerguntas(quantidadeDePerguntas);
+        this.questao.carregarPerguntas(QUANTIDADE_TOTAL_PERGUNTAS);
         this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
         this.gerenciadorDOM.setListenerBotoesDeMovimento(this.handleOpcaoDeMovimentoEscolhida.bind(this));
     }
@@ -40,7 +41,13 @@ export class Game {
             this.jogadorNoTurno.moverJogador();
             this.board.renderizarTabuleiro();
         }
-        this.gerenciadorDOM.esconderQuestoes();
+        console.log(this.jogadorNoTurno, this.jogadorNoTurno.index)
+        
+        if (this.jogadorNoTurno.posicao <= this.jogadorNoTurno.index) {
+            this.gerenciadorDOM.exibirTelaVencedor(this.jogadorNoTurno);
+            return;
+        }
+
         this.proximoTurno();
     }
 
@@ -53,6 +60,7 @@ export class Game {
     trocarJogadorNaVez() {
         this.jogadorNoTurno = this.jogadores[(this.jogadorNoTurno.index + 1) % this.jogadores.length];
         this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
+        this.gerenciadorDOM.esconderQuestoes();
         this.mostrarOpcoesDeMovimento();
     }
 

@@ -31,6 +31,7 @@ export class Board {
     }
 
     constructor(jogadores) {
+        this.totalCelulas = 40;
         this.jogadores = jogadores;
         this.celulas = []; 
     }
@@ -41,7 +42,7 @@ export class Board {
 
         this.celulas = [];
 
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < this.totalCelulas; i++) {
             this.celulas.push(new this.Celula(i)); 
         }
         this.jogadores.forEach((jogador) => {
