@@ -1,6 +1,9 @@
 import { Jogador } from './Jogador.js';
 import { Board } from './Board.js';
 import { Questao } from './Questao.js';
+import { GerenciadorDOM } from './GerenciadorDOM.js';
+
+const quantidadeDePerguntas = 37;
 
 export class Game {
     constructor() {
@@ -13,118 +16,74 @@ export class Game {
 
         this.questao = new Questao();
         this.board = new Board(this.jogadores);
-        this.currentPlayerIndex = 0;
+        this.gerenciadorDOM = new GerenciadorDOM();
+        this.jogadorNoTurno = this.jogadores[0];
 
-        this.initGame();
+        this.iniciarJogo();
     }
 
-    async initGame() {
-        this.board.createBoard();
-        this.questao.carregarPerguntas();
-        document.getElementById("current-player-img").src = this.jogadores[this.currentPlayerIndex].imagem;
-        this.setupMoveOptionButtons();
+    async iniciarJogo() {
+        this.board.renderizarTabuleiro();
+        this.questao.carregarPerguntas(quantidadeDePerguntas);
+        this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
+        this.gerenciadorDOM.setListenerBotoesDeMovimento(this.handleOpcaoDeMovimentoEscolhida.bind(this));
     }
 
-    setupMoveOptionButtons() {
-        document.querySelectorAll('.move-option').forEach(button => {
-            button.addEventListener('click', (event) => this.handleMoveChoice(event));
-        });
-    }
-
-    updatePlayerPosition() {
-        this.board.createBoard();
-    }
-
-    async displayQuestion() {
+    async mostrarQuestao() {
         const pergunta = this.questao.perguntas[Math.floor(Math.random() * this.questao.perguntas.length)];
-        
-        const questionContainer = document.getElementById('question-container');
-        const alternativesContainer = document.getElementById('alternatives');
-        
-        questionContainer.innerHTML = pergunta.pergunta;
-        
-        alternativesContainer.innerHTML = '';
-        pergunta.alternativas.forEach(alternativa => {
-            const button = document.createElement('button');
-            button.textContent = `${alternativa.alternativa}: ${alternativa.solucao}`;
-            button.classList.add('alternativa');
-            button.dataset.alternativa = alternativa.alternativa;
-            alternativesContainer.appendChild(button);
-    
-            button.addEventListener('click', () => {
-                const alternativaEscolhida = alternativa.alternativa;
-                const alternativaCorreta = pergunta.alternativaCorreta;
-                
-                if (alternativaEscolhida === alternativaCorreta) {
-                    this.processAnswer(true);
-                    button.style.backgroundColor = 'green'; 
-                } else {
-                    this.processAnswer(false);
-                    button.style.backgroundColor = 'red'; 
-                }
-                
-                document.querySelectorAll('#alternatives button').forEach(btn => {
-                    btn.disabled = true;
-                });
-    
-                setTimeout(() => {
-                    alternativesContainer.innerHTML = '';
-                }, 2000);
-            });
-        });
-        questionContainer.style.display = 'block';
+        this.gerenciadorDOM.mostrarQuestao(pergunta);
+        this.gerenciadorDOM.setListenerBotoesDeAlternativas(this.handleAlternativaEscolhida.bind(this));
     }
-    
-    processAnswer(isCorrect) {
-        const currentPlayer = this.jogadores[this.currentPlayerIndex];
-        const moveOption = parseInt(localStorage.getItem('moveOption'), 10);
-        
-    
-        const playerIcon = document.createElement('img');
-        playerIcon.src = currentPlayer.imagem;
-        playerIcon.alt = `Ícone do jogador ${currentPlayer.nome}`;
-        playerIcon.style.width = '30px'; 
-        playerIcon.style.marginRight = '10px'; 
-    
-     
-        if (isCorrect) {
-            currentPlayer.moverJogador(moveOption);
-            this.updatePlayerPosition();
-        } 
 
-    
-        document.getElementById('question-container').style.display = 'none';
-    
+    processarResposta(estaCorreta) {
+        if (estaCorreta) {
+            this.jogadorNoTurno.moverJogador();
+            this.board.renderizarTabuleiro();
+        }
+        this.gerenciadorDOM.esconderQuestoes();
+        this.proximoTurno();
+    }
+
+    proximoTurno() {
         setTimeout(() => {
-            this.switchPlayer();
-        }, 2000); 
-    }
-    
-    switchPlayer() {
-        this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.jogadores.length;
-        document.getElementById("current-player-img").src = this.jogadores[this.currentPlayerIndex].imagem;
-        this.displayMoveOptions();
+            this.trocarJogadorNaVez();
+        }, 2000);
     }
 
-    handleMoveChoice(event) {
-        const moveOption = parseInt(event.target.dataset.move);
-        if (!this.jogadores[this.currentPlayerIndex].escolherMovimento(moveOption)) {
-            return;
+    trocarJogadorNaVez() {
+        this.jogadorNoTurno = this.jogadores[(this.jogadorNoTurno.index + 1) % this.jogadores.length];
+        this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
+        this.mostrarOpcoesDeMovimento();
+    }
+
+    handleOpcaoDeMovimentoEscolhida(event) {
+        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = parseInt(event.target.dataset.move);
+        const movimentoJaEscolhido = this.jogadorNoTurno.handleMovimentosJaEscolhidos(this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
+
+        if (!movimentoJaEscolhido) {
+            localStorage.setItem('moveOption', this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
+            this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
+            this.mostrarQuestao();
+        }
+    }
+
+    handleAlternativaEscolhida(button) {
+        const respostaEscolhida = button.dataset.alternativa;
+
+        if (this.questao.respostaEstaCorreta(respostaEscolhida)) {
+            this.processarResposta(true);
+            button.style.backgroundColor = 'green';
+        } else {
+            this.processarResposta(false);
+            button.style.backgroundColor = 'red';
         }
 
-        localStorage.setItem('moveOption', moveOption);
-        document.querySelectorAll('.move-option').forEach(button => {
-            button.style.display = 'none';
-        });
-
-        this.displayQuestion();
+        this.gerenciadorDOM.desabilitarAlternativas();
+        setTimeout(() => this.gerenciadorDOM.limparAlternativas(), 2000);
     }
 
-
-    displayMoveOptions() {
-        document.querySelectorAll('.move-option').forEach(button => {
-            button.style.display = 'inline-block';
-        });
+    mostrarOpcoesDeMovimento() {
+        this.gerenciadorDOM.toggleOpcoesDeMovimento(true);
     }
 }
 

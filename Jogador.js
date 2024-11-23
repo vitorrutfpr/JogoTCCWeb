@@ -4,23 +4,25 @@ export class Jogador {
     constructor(index, imagem) {
         this.index = index;
         this.imagem = imagem;    
-        this.posicao = 36 + index; 
+        this.posicao = 36 + index; //posicao no tabuleiro
+        this.opcaoDeMovimentoEscolhida = 0;
         this.opcoesDeMovimento = [1, 2, 3]; 
         this.movimentosRealizados = [];
     }
 
-    escolherMovimento(opcao) {
-        if (this.movimentosRealizados.includes(opcao)) {
+    handleMovimentosJaEscolhidos() {
+        if (this.movimentosRealizados.includes(this.opcaoDeMovimentoEscolhida)) {
             alert("Você já escolheu essa opção de movimento. Escolha outra.");
-            return false;
+            return true;
         }
-        this.movimentosRealizados.push(opcao);
+
+        this.movimentosRealizados.push(this.opcaoDeMovimentoEscolhida);
 
         if (this.movimentosRealizados.length === this.opcoesDeMovimento.length) {
             this.resetarOpcoes();
         }
 
-        return true;
+        return false;
     }
 
     resetarOpcoes() {
@@ -28,11 +30,10 @@ export class Jogador {
         this.opcoesDeMovimento = [1, 2, 3];
     }
 
-    moverJogador(opcao) {
-        console.log('movendo')
-        opcao = opcao * 4
-        if (this.posicao - opcao >= 0) {
-            this.posicao -= opcao;
+    moverJogador() {
+        this.opcaoDeMovimentoEscolhida = this.opcaoDeMovimentoEscolhida * 4
+        if (this.posicao - this.opcaoDeMovimentoEscolhida >= 0) {
+            this.posicao -= this.opcaoDeMovimentoEscolhida;
         } else {
             this.posicao = 0;
         }
