@@ -41,14 +41,23 @@ export class Game {
             this.jogadorNoTurno.moverJogador();
             this.board.renderizarTabuleiro();
         }
-        console.log(this.jogadorNoTurno, this.jogadorNoTurno.index)
-        
-        if (this.jogadorNoTurno.posicao <= this.jogadorNoTurno.index) {
-            this.gerenciadorDOM.exibirTelaVencedor(this.jogadorNoTurno);
-            return;
-        }
 
-        this.proximoTurno();
+        if (this.jogadorVenceu()){
+            this.gerenciadorDOM.exibirTelaVencedor(this.jogadorNoTurno);
+            //this.reiniciarJogo();
+        } else {
+            this.proximoTurno();
+        }
+        
+    }
+
+    jogadorVenceu(){
+        if (this.jogadorNoTurno.posicao <= this.jogadorNoTurno.index) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     proximoTurno() {
