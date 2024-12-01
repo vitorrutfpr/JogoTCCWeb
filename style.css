@@ -1,5 +1,6 @@
 * {
     font-family: Arial, sans-serif;
+    font-weight: bold;
     font-size: 1em;
 }
 
@@ -32,15 +33,11 @@ body {
     background-color: #6d6342;
 }
 
-body h2 {
-    font-size: 1em;
-}
-
 #game-container {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    width: 60%;
+    width: auto;
     margin: 0 auto;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -68,9 +65,7 @@ body h2 {
     background-color: #b6916f; 
     border: none;
     border-radius: 8px;
-    padding: 15px 25px;
-    font-size: 16px;
-    font-weight: bold;
+    padding: 1em;
     color: white;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -82,16 +77,19 @@ body h2 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
-.move-option:active {
-    transform: translateY(0); 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-    background-color: #6d6038; 
+.move-option.selecionado {
+    background-color: #ffce84;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);   
+}
+
+.move-option:disabled {
+    pointer-events: none; 
 }
 
 #current-player {
-    width: 70%;
-    border: 2px solid #333;
-    padding: 10px;
+    width: 14em;
+    padding: 1em;
     border-radius: 8px;
     text-align: center;
     background-color: #6e5629;
@@ -109,13 +107,13 @@ body h2 {
 
 
 #question-container {
-    width: 70%;
-    margin: 2em;
+    width: 40em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     display: none;
     background-color: #6e5629;
     color: #d3b88c;
-    font-weight: bold;
-    padding: 15px;
+    padding: 1em;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -157,31 +155,44 @@ body h2 {
 }
 
 #alternativas {
-    width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #alternativas button {
     display: flex;
-    margin: 5px auto;
+    margin: 0.5em;
     padding: 1em;
-    width: 73%;
+    width: 100%;
     background-color: #8b7853;
     border: none;
     border-radius: 5px;
-    color: #d3b88c;
-    font-weight: bold;
+    color: #f3dfbf;
     cursor: pointer;
+    align-content: center;
 }
 
 #alternativas button:hover {
     background-color: #696664;
     transform: scale(1.05);
+}
+
+@keyframes tremor {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
+
+.botao-tremor {
+    animation: tremor 0.5s ease-in-out;
+    animation-iteration-count: 1; 
 }
 
 .correct {
@@ -194,14 +205,51 @@ body h2 {
 
 #result {
     margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
     color: #333;
 }
 
 #player-position {
     margin-top: 20px;
+}
+
+#botaoIniciar {
     font-size: 16px;
     font-weight: bold;
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s;
 }
+
+/* Efeito quando o mouse passa sobre o botão */
+#botaoIniciar:hover {
+    background-color: #45a049; /* Cor do fundo no hover */
+    transform: scale(1.1); /* Leve aumento de tamanho */
+}
+
+/* Efeito ao clicar no botão */
+#botaoIniciar:active {
+    background-color: #3e8e41; /* Cor do fundo quando clicado */
+    transform: scale(1); /* Retorna ao tamanho normal */
+}
+
+/* Estilo para esconder o botão */
+#botaoIniciar[style="display: none;"] {
+    display: none !important;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255); /* Transparente */
+}
+
+
+
 

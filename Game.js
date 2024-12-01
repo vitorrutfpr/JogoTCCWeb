@@ -19,21 +19,35 @@ export class Game {
         this.board = new Board(this.jogadores);
         this.gerenciadorDOM = new GerenciadorDOM();
         this.jogadorNoTurno = this.jogadores[0];
+        
+        this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
 
         this.iniciarJogo();
     }
 
     async iniciarJogo() {
+        await this.questao.carregarPerguntas(QUANTIDADE_TOTAL_PERGUNTAS);
         this.board.renderizarTabuleiro();
-        this.questao.carregarPerguntas(QUANTIDADE_TOTAL_PERGUNTAS);
         this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
         this.gerenciadorDOM.setListenerBotoesDeMovimento(this.handleOpcaoDeMovimentoEscolhida.bind(this));
+        await this.iniciarTurno();
+    }
+    
+    async iniciarTurno() {
+        const botaoClicado = await this.gerenciadorDOM.mostrarBotaoDeIniciarTurno();
+        
+        if (botaoClicado) {
+            this.gerenciadorDOM.toggleOpcoesDeMovimento(true); 
+            this.mostrarQuestao(); 
+        }
     }
 
-    async mostrarQuestao() {
+    mostrarQuestao() {
         const pergunta = this.questao.perguntas[Math.floor(Math.random() * this.questao.perguntas.length)];
-        this.gerenciadorDOM.mostrarQuestao(pergunta);
+        this.gerenciadorDOM.renderizarQuestao(pergunta);
         this.gerenciadorDOM.setListenerBotoesDeAlternativas(this.handleAlternativaEscolhida.bind(this));
+        this.gerenciadorDOM.desabilitarAlternativas(); //necessario esperar o jogador selecionar uma opçao de movimento
+        this.gerenciadorDOM.adicionarOverlayNasAlternativas();
     }
 
     processarResposta(estaCorreta) {
@@ -46,7 +60,10 @@ export class Game {
             this.gerenciadorDOM.exibirTelaVencedor(this.jogadorNoTurno);
             //this.reiniciarJogo();
         } else {
-            this.proximoTurno();
+            setTimeout(() => {
+                this.proximoTurno();
+            }, 2000);
+            
         }
         
     }
@@ -61,46 +78,44 @@ export class Game {
     }
 
     proximoTurno() {
-        setTimeout(() => {
-            this.trocarJogadorNaVez();
-        }, 2000);
+        this.trocarJogadorNaVez();
+        this.gerenciadorDOM.esconderQuestoes();
+        this.gerenciadorDOM.limparAlternativas();
+        this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
+        this.gerenciadorDOM.desmarcarOpcaoDeMovimentoSelecionado();
+        this.iniciarTurno();
     }
 
     trocarJogadorNaVez() {
         this.jogadorNoTurno = this.jogadores[(this.jogadorNoTurno.index + 1) % this.jogadores.length];
         this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
-        this.gerenciadorDOM.esconderQuestoes();
-        this.mostrarOpcoesDeMovimento();
     }
 
     handleOpcaoDeMovimentoEscolhida(event) {
-        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = parseInt(event.target.dataset.move);
-        const movimentoJaEscolhido = this.jogadorNoTurno.handleMovimentosJaEscolhidos(this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
-
+        const button = event.target;
+        const opcaoDeMovimento = parseInt(button.dataset.move);
+        const movimentoJaEscolhido = this.jogadorNoTurno.handleMovimentosJaEscolhidos(opcaoDeMovimento);
+        
         if (!movimentoJaEscolhido) {
-            localStorage.setItem('moveOption', this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
-            this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
-            this.mostrarQuestao();
+            this.jogadorNoTurno.opcaoDeMovimentoEscolhida = opcaoDeMovimento;
+            this.gerenciadorDOM.desmarcarOpcaoDeMovimentoSelecionado();
+            this.gerenciadorDOM.marcarOpcaoDeMovimentoSelecionado(button);
+            this.gerenciadorDOM.habilitarAlternativas();
+        }
+
+        if(this.jogadorNoTurno.opcaoDeMovimentoEscolhida){
+            this.gerenciadorDOM.removerOverlayNasAlternativas();
         }
     }
-
+    
     handleAlternativaEscolhida(button) {
-        const respostaEscolhida = button.dataset.alternativa;
-
-        if (this.questao.respostaEstaCorreta(respostaEscolhida)) {
-            this.processarResposta(true);
-            button.style.backgroundColor = 'green';
-        } else {
-            this.processarResposta(false);
-            button.style.backgroundColor = 'red';
-        }
-
+        this.jogadorNoTurno.alternativaEscolhida = button.dataset.alternativa;
         this.gerenciadorDOM.desabilitarAlternativas();
-        setTimeout(() => this.gerenciadorDOM.limparAlternativas(), 2000);
-    }
-
-    mostrarOpcoesDeMovimento() {
-        this.gerenciadorDOM.toggleOpcoesDeMovimento(true);
+        const estaCorreta = this.questao.respostaEstaCorreta(this.jogadorNoTurno.alternativaEscolhida);
+        this.processarResposta(estaCorreta);
+        button.style.backgroundColor = estaCorreta ? 'green' : 'red';
+        this.jogadorNoTurno.handleMovimentosJaEscolhidos(this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
+        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = null;
     }
 }
 

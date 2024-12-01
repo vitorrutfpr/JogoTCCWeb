@@ -7,6 +7,7 @@ export class GerenciadorDOM {
         this.elementoAlternativas = document.getElementById("alternativas");
         this.elementoImagemDoJogador = document.getElementById("current-player-img");
         this.elementoOpcoesDeMovimento = document.querySelectorAll('.move-option');
+        this.botaoIniciar = document.getElementById('botaoIniciar');
     }
 
     renderizarTabuleiro(celulas) {
@@ -15,6 +16,17 @@ export class GerenciadorDOM {
             this.elementoTabuleiro.appendChild(celula.criarElemento());
         });
     }
+
+    mostrarBotaoDeIniciarTurno() {
+        return new Promise((resolve) => {
+            this.botaoIniciar.style.display = 'block';
+            this.botaoIniciar.addEventListener('click', () => {
+                this.botaoIniciar.style.display = 'none';  
+                resolve(true); 
+            });
+        });
+    }
+    
 
     exibirTelaVencedor(jogador, reiniciarCallback) {
         const telaVencedor = document.createElement('div');
@@ -44,7 +56,16 @@ export class GerenciadorDOM {
         });
     }
 
-    mostrarQuestao(pergunta) {
+    tremerBotoesDeOpcaoDeMovimento() {
+        this.elementoOpcoesDeMovimento.forEach(button => {
+            button.classList.add('botao-tremor');
+            button.addEventListener('animationend', () => {
+                button.classList.remove('botao-tremor');
+            });
+        });
+    }
+
+    renderizarQuestao(pergunta) {
         this.elementoQuestao.innerHTML = pergunta.pergunta;
         this.elementoAlternativas.innerHTML = '';
 
@@ -63,9 +84,29 @@ export class GerenciadorDOM {
         this.elementoAlternativas.innerHTML = '';
     }
 
+    
+    habilitarAlternativas() {
+        this.elementoAlternativas.querySelectorAll('button').forEach(button => {
+            button.disabled = false;
+        });
+    }
+    
+
     desabilitarAlternativas() {
         this.elementoAlternativas.querySelectorAll('button').forEach(button => {
             button.disabled = true;
+        });
+    }
+
+    marcarOpcaoDeMovimentoSelecionado(button) {
+        button.classList.add('selecionado');
+        button.disabled = true; 
+    }
+    
+    desmarcarOpcaoDeMovimentoSelecionado() {
+        document.querySelectorAll('.move-option').forEach(button => {
+            button.classList.remove('selecionado');
+            button.disabled = false;
         });
     }
 
@@ -84,4 +125,32 @@ export class GerenciadorDOM {
     esconderQuestoes() {
         this.elementoQuestao.style.display = 'none';
     }
+
+    adicionarOverlayNasAlternativas() {
+        
+        this.elementoAlternativas.forEach(button => {
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay');
+            button.appendChild(overlay);
+    
+            // Impede interações com a alternativa enquanto o overlay está presente
+            overlay.addEventListener('click', (event) => {
+                this.gerenciadorDOM.tremerBotoesDeOpcaoDeMovimento();
+                
+            });
+        });
+    }
+
+    removerOverlayNasAlternativas() {
+        const alternativas = document.querySelectorAll('.alternativa');
+        
+        alternativas.forEach(button => {
+            const overlay = button.querySelector('.overlay');
+            if (overlay) {
+                button.removeChild(overlay);
+            }
+        });
+    }
+    
+    
 }

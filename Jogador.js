@@ -8,6 +8,7 @@ export class Jogador {
         this.opcaoDeMovimentoEscolhida = 0;
         this.opcoesDeMovimento = [1, 2, 3]; 
         this.movimentosRealizados = [];
+        this.alternativaEscolhida = false; 
     }
 
     handleMovimentosJaEscolhidos() {
