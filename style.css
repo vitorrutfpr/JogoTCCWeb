@@ -175,6 +175,7 @@ body {
     color: #f3dfbf;
     cursor: pointer;
     align-content: center;
+    position: relative;
 }
 
 #alternativas button:hover {
@@ -216,40 +217,36 @@ body {
     font-size: 16px;
     font-weight: bold;
     padding: 10px 20px;
-    background-color: #4CAF50; 
-    color: white;
+    background-color: #aa8852; 
+    color: #000000;
     border: none; 
     border-radius: 5px; 
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Efeito quando o mouse passa sobre o botão */
 #botaoIniciar:hover {
-    background-color: #45a049; /* Cor do fundo no hover */
-    transform: scale(1.1); /* Leve aumento de tamanho */
+    background-color: #be934e; 
+    transform: scale(1.1);
 }
 
-/* Efeito ao clicar no botão */
 #botaoIniciar:active {
-    background-color: #3e8e41; /* Cor do fundo quando clicado */
-    transform: scale(1); /* Retorna ao tamanho normal */
+    background-color: #aa8852; 
+    transform: scale(1.05);
 }
 
-/* Estilo para esconder o botão */
 #botaoIniciar[style="display: none;"] {
     display: none !important;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255); /* Transparente */
+button.alternativa .overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
 }
-
 
 
 

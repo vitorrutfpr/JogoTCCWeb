@@ -1,7 +1,8 @@
 //Objetivo desta classe é gerenciar todos os elementos da parte visual do jogo.
 
 export class GerenciadorDOM {
-    constructor() {
+    constructor(game) {
+        this.game = game;
         this.elementoTabuleiro = document.getElementById("board");
         this.elementoQuestao = document.getElementById("question-container");
         this.elementoAlternativas = document.getElementById("alternativas");
@@ -17,6 +18,19 @@ export class GerenciadorDOM {
         });
     }
 
+    atualizarOpcoesDeMovimento() {
+        this.elementoOpcoesDeMovimento.forEach(button => {
+            const movimento = parseInt(button.dataset.move);
+            if (this.game.jogadorNoTurno.movimentosRealizados.includes(movimento)) {
+                button.style.display = 'none';  
+                button.disabled = true;        
+            } else {
+                button.style.display = 'inline-block';
+                button.disabled = false;      
+            }
+        });
+    }
+
     mostrarBotaoDeIniciarTurno() {
         return new Promise((resolve) => {
             this.botaoIniciar.style.display = 'block';
@@ -27,7 +41,6 @@ export class GerenciadorDOM {
         });
     }
     
-
     exibirTelaVencedor(jogador, reiniciarCallback) {
         const telaVencedor = document.createElement('div');
         telaVencedor.id = 'winner-screen';
@@ -67,19 +80,45 @@ export class GerenciadorDOM {
 
     renderizarQuestao(pergunta) {
         this.elementoQuestao.innerHTML = pergunta.pergunta;
-        this.elementoAlternativas.innerHTML = '';
-
+        this.elementoAlternativas.innerHTML = ''; 
+    
         pergunta.alternativas.forEach(alternativa => {
             const button = document.createElement('button');
             button.textContent = `${alternativa.alternativa}: ${alternativa.solucao}`;
             button.classList.add('alternativa');
             button.dataset.alternativa = alternativa.alternativa;
+    
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay'); 
+            button.appendChild(overlay);
             this.elementoAlternativas.appendChild(button);
         });
-
+    
         this.elementoQuestao.style.display = 'block';
     }
+    
+    setListenerDoOverlayDeAlternativas() {
+        const overlays = this.elementoAlternativas.querySelectorAll('.overlay');
+    
+        overlays.forEach(overlay => {
+            overlay.addEventListener('click', () => {
+                if (this.game.jogadorNoTurno.opcaoDeMovimentoEscolhida === 0){
+                    this.tremerBotoesDeOpcaoDeMovimento();
+                }
+            });
+        });
+    }
 
+    removerListenerDoOverlayDeAlternativas() {
+        const overlays = this.elementoAlternativas.querySelectorAll('.overlay');
+        
+        overlays.forEach(overlay => {
+            const callback = overlay.dataset.callback;
+            overlay.removeEventListener('click', callback);
+            delete overlay.dataset.callback;
+        });
+    }
+    
     limparAlternativas() {
         this.elementoAlternativas.innerHTML = '';
     }
@@ -125,32 +164,5 @@ export class GerenciadorDOM {
     esconderQuestoes() {
         this.elementoQuestao.style.display = 'none';
     }
-
-    adicionarOverlayNasAlternativas() {
-        
-        this.elementoAlternativas.forEach(button => {
-            const overlay = document.createElement('div');
-            overlay.classList.add('overlay');
-            button.appendChild(overlay);
-    
-            // Impede interações com a alternativa enquanto o overlay está presente
-            overlay.addEventListener('click', (event) => {
-                this.gerenciadorDOM.tremerBotoesDeOpcaoDeMovimento();
-                
-            });
-        });
-    }
-
-    removerOverlayNasAlternativas() {
-        const alternativas = document.querySelectorAll('.alternativa');
-        
-        alternativas.forEach(button => {
-            const overlay = button.querySelector('.overlay');
-            if (overlay) {
-                button.removeChild(overlay);
-            }
-        });
-    }
-    
     
 }

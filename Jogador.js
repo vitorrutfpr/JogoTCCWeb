@@ -12,21 +12,14 @@ export class Jogador {
     }
 
     handleMovimentosJaEscolhidos() {
-        if (this.movimentosRealizados.includes(this.opcaoDeMovimentoEscolhida)) {
-            alert("Você já escolheu essa opção de movimento. Escolha outra.");
-            return true;
-        }
-
         this.movimentosRealizados.push(this.opcaoDeMovimentoEscolhida);
-
         if (this.movimentosRealizados.length === this.opcoesDeMovimento.length) {
-            this.resetarOpcoes();
+            this.resetarOpcoesDeMovimento();
         }
-
         return false;
     }
 
-    resetarOpcoes() {
+    resetarOpcoesDeMovimento() {
         this.movimentosRealizados = [];
         this.opcoesDeMovimento = [1, 2, 3];
     }

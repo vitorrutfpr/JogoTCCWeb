@@ -17,7 +17,7 @@ export class Game {
 
         this.questao = new Questao();
         this.board = new Board(this.jogadores);
-        this.gerenciadorDOM = new GerenciadorDOM();
+        this.gerenciadorDOM = new GerenciadorDOM(this);
         this.jogadorNoTurno = this.jogadores[0];
         
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
@@ -39,6 +39,8 @@ export class Game {
         if (botaoClicado) {
             this.gerenciadorDOM.toggleOpcoesDeMovimento(true); 
             this.mostrarQuestao(); 
+            this.gerenciadorDOM.atualizarOpcoesDeMovimento();
+            
         }
     }
 
@@ -46,8 +48,9 @@ export class Game {
         const pergunta = this.questao.perguntas[Math.floor(Math.random() * this.questao.perguntas.length)];
         this.gerenciadorDOM.renderizarQuestao(pergunta);
         this.gerenciadorDOM.setListenerBotoesDeAlternativas(this.handleAlternativaEscolhida.bind(this));
-        this.gerenciadorDOM.desabilitarAlternativas(); //necessario esperar o jogador selecionar uma opçao de movimento
-        this.gerenciadorDOM.adicionarOverlayNasAlternativas();
+        this.gerenciadorDOM.desabilitarAlternativas(); 
+        this.gerenciadorDOM.setListenerDoOverlayDeAlternativas();
+
     }
 
     processarResposta(estaCorreta) {
@@ -83,6 +86,8 @@ export class Game {
         this.gerenciadorDOM.limparAlternativas();
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
         this.gerenciadorDOM.desmarcarOpcaoDeMovimentoSelecionado();
+        this.gerenciadorDOM.desabilitarAlternativas();
+
         this.iniciarTurno();
     }
 
@@ -102,20 +107,18 @@ export class Game {
             this.gerenciadorDOM.marcarOpcaoDeMovimentoSelecionado(button);
             this.gerenciadorDOM.habilitarAlternativas();
         }
-
-        if(this.jogadorNoTurno.opcaoDeMovimentoEscolhida){
-            this.gerenciadorDOM.removerOverlayNasAlternativas();
-        }
     }
     
     handleAlternativaEscolhida(button) {
         this.jogadorNoTurno.alternativaEscolhida = button.dataset.alternativa;
         this.gerenciadorDOM.desabilitarAlternativas();
+        this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
         const estaCorreta = this.questao.respostaEstaCorreta(this.jogadorNoTurno.alternativaEscolhida);
         this.processarResposta(estaCorreta);
         button.style.backgroundColor = estaCorreta ? 'green' : 'red';
         this.jogadorNoTurno.handleMovimentosJaEscolhidos(this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
-        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = null;
+        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = 0;
+        
     }
 }
 
