@@ -1,3 +1,4 @@
+const TOTAL_DE_MOVIMENTOS_POSSIVEIS_PELO_JOGADOR = 3;
 
 export class Jogador {
     
@@ -6,14 +7,13 @@ export class Jogador {
         this.imagem = imagem;    
         this.posicao = 36 + index; //posicao no tabuleiro
         this.opcaoDeMovimentoEscolhida = 0;
-        this.opcoesDeMovimento = [1, 2, 3]; 
         this.movimentosRealizados = [];
         this.alternativaEscolhida = false; 
     }
 
-    handleMovimentosJaEscolhidos() {
+    adicionarNaListaDeMovimentosJaEscolhidos() {
         this.movimentosRealizados.push(this.opcaoDeMovimentoEscolhida);
-        if (this.movimentosRealizados.length === this.opcoesDeMovimento.length) {
+        if (this.movimentosRealizados.length === TOTAL_DE_MOVIMENTOS_POSSIVEIS_PELO_JOGADOR) {
             this.resetarOpcoesDeMovimento();
         }
         return false;
@@ -21,7 +21,6 @@ export class Jogador {
 
     resetarOpcoesDeMovimento() {
         this.movimentosRealizados = [];
-        this.opcoesDeMovimento = [1, 2, 3];
     }
 
     moverJogador() {

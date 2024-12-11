@@ -66,9 +66,7 @@ export class Game {
             setTimeout(() => {
                 this.proximoTurno();
             }, 2000);
-            
         }
-        
     }
 
     jogadorVenceu(){
@@ -97,28 +95,24 @@ export class Game {
     }
 
     handleOpcaoDeMovimentoEscolhida(event) {
-        const button = event.target;
-        const opcaoDeMovimento = parseInt(button.dataset.move);
-        const movimentoJaEscolhido = this.jogadorNoTurno.handleMovimentosJaEscolhidos(opcaoDeMovimento);
+        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = parseInt(event.target.dataset.move);
+        console.log(this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
+        this.gerenciadorDOM.desmarcarOpcaoDeMovimentoSelecionado();
+        this.gerenciadorDOM.marcarOpcaoDeMovimentoSelecionado(event.target);
+        this.gerenciadorDOM.habilitarAlternativas();
         
-        if (!movimentoJaEscolhido) {
-            this.jogadorNoTurno.opcaoDeMovimentoEscolhida = opcaoDeMovimento;
-            this.gerenciadorDOM.desmarcarOpcaoDeMovimentoSelecionado();
-            this.gerenciadorDOM.marcarOpcaoDeMovimentoSelecionado(button);
-            this.gerenciadorDOM.habilitarAlternativas();
-        }
     }
     
     handleAlternativaEscolhida(button) {
+        this.jogadorNoTurno.adicionarNaListaDeMovimentosJaEscolhidos();
+        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = 0;
         this.jogadorNoTurno.alternativaEscolhida = button.dataset.alternativa;
         this.gerenciadorDOM.desabilitarAlternativas();
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
         const estaCorreta = this.questao.respostaEstaCorreta(this.jogadorNoTurno.alternativaEscolhida);
         this.processarResposta(estaCorreta);
         button.style.backgroundColor = estaCorreta ? 'green' : 'red';
-        this.jogadorNoTurno.handleMovimentosJaEscolhidos(this.jogadorNoTurno.opcaoDeMovimentoEscolhida);
-        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = 0;
-        
+
     }
 }
 
