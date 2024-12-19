@@ -105,14 +105,13 @@ export class Game {
     
     handleAlternativaEscolhida(button) {
         this.jogadorNoTurno.adicionarNaListaDeMovimentosJaEscolhidos();
-        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = 0;
         this.jogadorNoTurno.alternativaEscolhida = button.dataset.alternativa;
         this.gerenciadorDOM.desabilitarAlternativas();
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
         const estaCorreta = this.questao.respostaEstaCorreta(this.jogadorNoTurno.alternativaEscolhida);
         this.processarResposta(estaCorreta);
         button.style.backgroundColor = estaCorreta ? 'green' : 'red';
-
+        this.jogadorNoTurno.opcaoDeMovimentoEscolhida = 0;
     }
 }
 
