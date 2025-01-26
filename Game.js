@@ -20,7 +20,7 @@ export class Game {
         this.board = new Board(this.jogadores);
         this.gerenciadorDOM = new GerenciadorDOM(this);
         this.jogadorNoTurno = this.jogadores[0];
-        
+        this.idPerguntasJaFeitas = [];
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
 
         this.iniciarJogo();
@@ -48,16 +48,11 @@ export class Game {
         this.inicializarJogadores();
         this.jogadorNoTurno = this.jogadores[0];
         this.board = new Board(this.jogadores);
-    
-        // Resetar o estado das perguntas
+        this.idPerguntasJaFeitas = [];
         this.questoes = new Questao();
         this.perguntaAtualId = null;
-    
-        // Atualizar DOM e reiniciar o fluxo do jogo
-        this.gerenciadorDOM.resetarInterface(); // Assuma que esse método redefine o DOM
+        this.gerenciadorDOM.resetarInterface(); 
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
-    
-        // Recarregar perguntas e reiniciar o jogo
         this.iniciarJogo();
     }
 
@@ -73,14 +68,28 @@ export class Game {
     }
 
     mostrarQuestao() {
-        const pergunta = this.questoes.perguntas[Math.floor(Math.random() * this.questoes.perguntas.length)];
+        const perguntasNaoFeitas = this.questoes.perguntas.filter(
+            pergunta => !this.idPerguntasJaFeitas.includes(pergunta.id)
+        );
+    
+        let pergunta;
+    
+        if (perguntasNaoFeitas.length > 0) {
+            pergunta = perguntasNaoFeitas[Math.floor(Math.random() * perguntasNaoFeitas.length)];
+        } else {
+            //se todas as perguntas já foram feitas, reinicia questoes
+            this.idPerguntasJaFeitas = [];
+            pergunta = this.questoes.perguntas[Math.floor(Math.random() * this.questoes.perguntas.length)];
+        }
+    
         this.perguntaAtualId = pergunta.id;
+        this.idPerguntasJaFeitas.push(this.perguntaAtualId);
+    
         this.gerenciadorDOM.renderizarQuestao(pergunta);
         this.gerenciadorDOM.setListenerBotoesDeAlternativas(this.handleAlternativaEscolhida.bind(this));
         this.gerenciadorDOM.desabilitarAlternativas(); 
         this.gerenciadorDOM.setListenerDoOverlayDeAlternativas();
     }
-
     processarResposta(estaCorreta) {
         if (estaCorreta) {
             this.jogadorNoTurno.moverJogador();
