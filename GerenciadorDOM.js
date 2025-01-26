@@ -10,6 +10,18 @@ export class GerenciadorDOM {
         this.elementoOpcoesDeMovimento = document.querySelectorAll('.move-option');
         this.botaoIniciar = document.getElementById('botaoIniciar');
     }
+    
+
+
+    resetarInterface() {
+        this.elementoTabuleiro.innerHTML = '';
+        this.elementoQuestao.style.display = 'none';
+        this.limparAlternativas();
+        this.elementoImagemDoJogador.src = '';
+        this.desmarcarOpcaoDeMovimentoSelecionado();
+        this.toggleOpcoesDeMovimento(false);
+        this.botaoIniciar.style.display = 'none';
+    }
 
     renderizarTabuleiro(celulas) {
         this.elementoTabuleiro.innerHTML = '';
@@ -46,16 +58,20 @@ export class GerenciadorDOM {
         telaVencedor.id = 'winner-screen';
         telaVencedor.innerHTML = `
             <div class="winner-message">
-                <h1>🎉 ${jogador.nome || 'Jogador'} venceu! 🎉</h1>
+                <h1>🎉 Parabéns! Você venceu! 🎉</h1>
+                <img src="${jogador.imagem}" alt="Imagem do Jogador" class="winner-image">
                 <button id="restart-game">Jogar Novamente</button>
             </div>
         `;
+    
         document.body.appendChild(telaVencedor);
-
+    
         const botaoRestart = document.getElementById('restart-game');
+ 
         botaoRestart.addEventListener('click', () => {
             document.body.removeChild(telaVencedor);
-            if (reiniciarCallback) reiniciarCallback();
+            this.resetarInterface(); 
+            if (reiniciarCallback) reiniciarCallback(); 
         });
     }
 

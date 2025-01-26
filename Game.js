@@ -15,7 +15,8 @@ export class Game {
             new Jogador(3, "imagens/rainha.png")
         ];
 
-        this.questao = new Questao();
+        this.questoes = new Questao();
+        this.perguntaAtualId = null;
         this.board = new Board(this.jogadores);
         this.gerenciadorDOM = new GerenciadorDOM(this);
         this.jogadorNoTurno = this.jogadores[0];
@@ -26,13 +27,40 @@ export class Game {
     }
 
     async iniciarJogo() {
-        await this.questao.carregarPerguntas(QUANTIDADE_TOTAL_PERGUNTAS);
+        await this.questoes.carregarPerguntas(QUANTIDADE_TOTAL_PERGUNTAS);
         this.board.renderizarTabuleiro();
         this.gerenciadorDOM.setJogadorNoTurnoImagem(this.jogadorNoTurno.imagem);
         this.gerenciadorDOM.setListenerBotoesDeMovimento(this.handleOpcaoDeMovimentoEscolhida.bind(this));
         await this.iniciarTurno();
     }
+
+    inicializarJogadores() {
+        this.jogadores = [
+            new Jogador(0, "imagens/cavalo.png"),
+            new Jogador(1, "imagens/torre.png"),
+            new Jogador(2, "imagens/bispo.png"),
+            new Jogador(3, "imagens/rainha.png")
+        ];
+    }
+
+    reiniciarJogo() {
+        console.log('Reiniciando o jogo...');
+        this.inicializarJogadores();
+        this.jogadorNoTurno = this.jogadores[0];
+        this.board = new Board(this.jogadores);
     
+        // Resetar o estado das perguntas
+        this.questoes = new Questao();
+        this.perguntaAtualId = null;
+    
+        // Atualizar DOM e reiniciar o fluxo do jogo
+        this.gerenciadorDOM.resetarInterface(); // Assuma que esse método redefine o DOM
+        this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
+    
+        // Recarregar perguntas e reiniciar o jogo
+        this.iniciarJogo();
+    }
+
     async iniciarTurno() {
         const botaoClicado = await this.gerenciadorDOM.mostrarBotaoDeIniciarTurno();
         
@@ -45,12 +73,12 @@ export class Game {
     }
 
     mostrarQuestao() {
-        const pergunta = this.questao.perguntas[Math.floor(Math.random() * this.questao.perguntas.length)];
+        const pergunta = this.questoes.perguntas[Math.floor(Math.random() * this.questoes.perguntas.length)];
+        this.perguntaAtualId = pergunta.id;
         this.gerenciadorDOM.renderizarQuestao(pergunta);
         this.gerenciadorDOM.setListenerBotoesDeAlternativas(this.handleAlternativaEscolhida.bind(this));
         this.gerenciadorDOM.desabilitarAlternativas(); 
         this.gerenciadorDOM.setListenerDoOverlayDeAlternativas();
-
     }
 
     processarResposta(estaCorreta) {
@@ -60,8 +88,7 @@ export class Game {
         }
 
         if (this.jogadorVenceu()){
-            this.gerenciadorDOM.exibirTelaVencedor(this.jogadorNoTurno);
-            //this.reiniciarJogo();
+            this.gerenciadorDOM.exibirTelaVencedor(this.jogadorNoTurno, this.reiniciarJogo.bind(this));
         } else {
             setTimeout(() => {
                 this.proximoTurno();
@@ -108,9 +135,20 @@ export class Game {
         this.jogadorNoTurno.alternativaEscolhida = button.dataset.alternativa;
         this.gerenciadorDOM.desabilitarAlternativas();
         this.gerenciadorDOM.toggleOpcoesDeMovimento(false);
-        const estaCorreta = this.questao.respostaEstaCorreta(this.jogadorNoTurno.alternativaEscolhida);
+        const estaCorreta = this.questoes.respostaEstaCorreta(this.jogadorNoTurno.alternativaEscolhida);
         this.processarResposta(estaCorreta);
-        button.style.backgroundColor = estaCorreta ? 'green' : 'red';
+        if (estaCorreta) {
+            button.style.backgroundColor = 'green';
+        } else {
+            button.style.backgroundColor = 'red';
+            const alternativaCorreta = this.questoes.perguntas.find(p => p.id === this.perguntaAtualId).alternativaCorreta;
+            const botoesAlternativas = this.gerenciadorDOM.elementoAlternativas.querySelectorAll('button');
+            botoesAlternativas.forEach(btn => {
+                if (btn.dataset.alternativa === alternativaCorreta) {
+                    btn.style.backgroundColor = 'green';
+                }
+            });
+        }
         this.jogadorNoTurno.opcaoDeMovimentoEscolhida = 0;
     }
 }
