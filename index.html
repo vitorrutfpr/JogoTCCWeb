@@ -11,7 +11,32 @@
         
         <div id="game-container">
             <div id="esquerda-container">
-                <button id="botaoIniciar">Iniciar Turno</button>
+
+                <div class="botaoIniciar-Info-container">
+                    <div>
+                        <button id="botaoIniciar">Iniciar Turno</button>
+                    </div>
+                    
+                    <div>
+                        <div id="info">
+                            ℹ️
+                        </div>
+        
+                        <div id="infoPopup">
+                            <div class="infoContent">
+                                <strong>📜 Regras do Jogo:</strong><br><br>
+                                🎯 <b>Objetivo:</b> Ser o primeiro a chegar na última casa do tabuleiro.<br><br>
+                                🎲 <b>Como jogar:</b> O jogador lê a pergunta e as alternativas. Ele aposta de 1 a 3 casas.<br><br>
+                                ✅ <b>Acerto:</b> Anda o número de casas apostadas.<br>
+                                ❌ <b>Erro:</b> Permanece na mesma casa.<br><br>
+                                🔄 As apostas se esgotam, mas são recuperadas ao fim do ciclo.<br><br>
+                                🏆 <b>Vence quem chegar primeiro na última casa!</b>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
 
                 <div class="move-options">
                     <button class="move-option" data-move="1">1 Casa</button>
